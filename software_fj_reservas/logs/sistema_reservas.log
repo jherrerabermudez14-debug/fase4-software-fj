@@ -1,0 +1,117 @@
+2026-11-18 00:37:53 | INFO     | Sistema Software FJ inicializado correctamente.
+2026-11-18 00:37:53 | INFO     | Cliente registrado: Cliente [CLI-001] Ana María Torres | Doc: 1020304050 | Correo: ana.torres@ejemplo.com | Tel: 3104567890
+2026-11-18 00:37:53 | INFO     | Fin de intento de registro de cliente 'CLI-001'.
+2026-11-18 00:37:53 | INFO     | Cliente registrado: Cliente [CLI-002] Carlos Andrés Gómez | Doc: 1098765432 | Correo: carlos.gomez@empresa.co | Tel: 3209876543
+2026-11-18 00:37:53 | INFO     | Fin de intento de registro de cliente 'CLI-002'.
+2026-11-18 00:37:53 | ERROR    | Error al registrar cliente 'CLI-003': [ERR_DATOS_INVALIDOS] El documento '123' es inválido; debe tener entre 5 y 15 dígitos numéricos.
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/sistema.py", line 57, in registrar_cliente
+    cliente_creado = Cliente(id_cliente, nombre, documento, correo, telefono)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/cliente.py", line 19, in __init__
+    self.documento = documento
+    ^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/cliente.py", line 55, in documento
+    raise DatosInvalidosError(
+excepciones.DatosInvalidosError: [ERR_DATOS_INVALIDOS] El documento '123' es inválido; debe tener entre 5 y 15 dígitos numéricos.
+2026-11-18 00:37:53 | INFO     | Fin de intento de registro de cliente 'CLI-003'.
+2026-11-18 00:37:53 | ERROR    | Error al registrar cliente 'CLI-004': [ERR_PARAMETRO_FALTANTE] El nombre del cliente es obligatorio.
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/sistema.py", line 57, in registrar_cliente
+    cliente_creado = Cliente(id_cliente, nombre, documento, correo, telefono)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/cliente.py", line 18, in __init__
+    self.nombre = nombre
+    ^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/cliente.py", line 35, in nombre
+    raise ParametroFaltanteError("El nombre del cliente es obligatorio.")
+excepciones.ParametroFaltanteError: [ERR_PARAMETRO_FALTANTE] El nombre del cliente es obligatorio.
+2026-11-18 00:37:53 | INFO     | Fin de intento de registro de cliente 'CLI-004'.
+2026-11-18 00:37:53 | INFO     | Servicio registrado: Sala [SRV-001] Sala Innovación A | Capacidad: 12 pers. | con proyector | Tarifa/h: $80,000.00 | Estado: Disponible
+2026-11-18 00:37:53 | INFO     | Servicio registrado: Equipo [SRV-002] Portátil Workstation Pro (Laptop i9 / 32GB RAM) | Stock: 5 | con soporte técnico | Tarifa/h: $35,000.00
+2026-11-18 00:37:53 | INFO     | Servicio registrado: Asesoría [SRV-003] Consultoría Arquitectura Python | Área: Patrones de Diseño y POO | Modalidad: presencial | Tarifa/h: $120,000.00
+2026-11-18 00:37:53 | ERROR    | Error creando servicio inválido: [ERR_DATOS_INVALIDOS] La tarifa base debe ser mayor que cero.
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/main.py", line 109, in ejecutar_simulaciones
+    sala_invalida = ReservaSala(
+                    ^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 168, in __init__
+    super().__init__(id_servicio, nombre, tarifa_base, disponible)
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 27, in __init__
+    self.tarifa_base = tarifa_base
+    ^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 62, in tarifa_base
+    raise DatosInvalidosError("La tarifa base debe ser mayor que cero.")
+excepciones.DatosInvalidosError: [ERR_DATOS_INVALIDOS] La tarifa base debe ser mayor que cero.
+2026-11-18 00:37:53 | ERROR    | Error de tipo al crear servicio: [ERR_DATOS_INVALIDOS] La tarifa base 'no_es_numero' debe ser un valor numérico. | Causa: could not convert string to float: 'no_es_numero'
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 54, in tarifa_base
+    tarifa = float(valor)
+             ^^^^^^^^^^^^
+ValueError: could not convert string to float: 'no_es_numero'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/main.py", line 126, in ejecutar_simulaciones
+    equipo_erroneo = AlquilerEquipo(
+                     ^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 216, in __init__
+    super().__init__(id_servicio, nombre, tarifa_base, disponible)
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 27, in __init__
+    self.tarifa_base = tarifa_base
+    ^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 57, in tarifa_base
+    raise DatosInvalidosError(
+excepciones.DatosInvalidosError: [ERR_DATOS_INVALIDOS] La tarifa base 'no_es_numero' debe ser un valor numérico.
+2026-11-18 00:37:53 | INFO     | Reserva creada: Reserva [RES-001] | Cliente: Ana María Torres | Servicio: Sala Innovación A | Duración: 3h | Estado: PENDIENTE | Total: $0.00
+2026-11-18 00:37:53 | INFO     | Reserva procesada con éxito: Reserva [RES-001] | Cliente: Ana María Torres | Servicio: Sala Innovación A | Duración: 3h | Estado: PROCESADA | Total: $283,815.00
+2026-11-18 00:37:53 | INFO     | Reserva creada: Reserva [RES-002] | Cliente: Carlos Andrés Gómez | Servicio: Portátil Workstation Pro | Duración: 4h | Estado: PENDIENTE | Total: $0.00
+2026-11-18 00:37:53 | INFO     | Reserva procesada con éxito: Reserva [RES-002] | Cliente: Carlos Andrés Gómez | Servicio: Portátil Workstation Pro | Duración: 4h | Estado: PROCESADA | Total: $238,000.00
+2026-11-18 00:37:53 | INFO     | Reserva creada: Reserva [RES-003] | Cliente: Ana María Torres | Servicio: Consultoría Arquitectura Python | Duración: 2h | Estado: PENDIENTE | Total: $0.00
+2026-11-18 00:37:53 | INFO     | Reserva procesada con éxito: Reserva [RES-003] | Cliente: Ana María Torres | Servicio: Consultoría Arquitectura Python | Duración: 2h | Estado: PROCESADA | Total: $312,018.00
+2026-11-18 00:37:53 | INFO     | Servicio registrado: Sala [SRV-004] Sala Auditorio | Capacidad: 40 pers. | sin proyector | Tarifa/h: $150,000.00 | Estado: No disponible
+2026-11-18 00:37:53 | ERROR    | Fallo al crear reserva 'RES-004': [ERR_RESERVA_INVALIDA] No se pudo crear la reserva [RES-004]: [ERR_SERVICIO_NO_DISPONIBLE] La sala 'Sala Auditorio' no está disponible actualmente. | Causa: [ERR_SERVICIO_NO_DISPONIBLE] La sala 'Sala Auditorio' no está disponible actualmente.
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/reserva.py", line 51, in __init__
+    servicio.validar_parametros(duracion_int)
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 177, in validar_parametros
+    raise ServicioNoDisponibleError(f"La sala '{self._nombre}' no está disponible actualmente.")
+excepciones.ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] La sala 'Sala Auditorio' no está disponible actualmente.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/sistema.py", line 93, in crear_reserva
+    reserva = Reserva(id_reserva, cliente, servicio, duracion)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/reserva.py", line 54, in __init__
+    raise ReservaInvalidaError(
+excepciones.ReservaInvalidaError: [ERR_RESERVA_INVALIDA] No se pudo crear la reserva [RES-004]: [ERR_SERVICIO_NO_DISPONIBLE] La sala 'Sala Auditorio' no está disponible actualmente.
+2026-11-18 00:37:53 | INFO     | Reserva creada: Reserva [RES-005] | Cliente: Carlos Andrés Gómez | Servicio: Portátil Workstation Pro | Duración: 2h | Estado: PENDIENTE | Total: $0.00
+2026-11-18 00:37:53 | ERROR    | Error procesando reserva: [ERR_CALCULO_INCONSISTENTE] No fue posible calcular el costo total para 'Portátil Workstation Pro': El descuento debe estar entre 0.0 (0%) y 0.80 (80%). | Causa: El descuento debe estar entre 0.0 (0%) y 0.80 (80%).
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 112, in calcular_costo_total
+    raise ValueError("El descuento debe estar entre 0.0 (0%) y 0.80 (80%).")
+ValueError: El descuento debe estar entre 0.0 (0%) y 0.80 (80%).
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/sistema.py", line 114, in confirmar_y_procesar_reserva
+    total = reserva.procesar(descuento=descuento, impuesto=impuesto, recargo=recargo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/reserva.py", line 136, in procesar
+    monto = self._servicio.calcular_costo_total(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/servicios.py", line 125, in calcular_costo_total
+    raise CalculoInconsistenteError(
+excepciones.CalculoInconsistenteError: [ERR_CALCULO_INCONSISTENTE] No fue posible calcular el costo total para 'Portátil Workstation Pro': El descuento debe estar entre 0.0 (0%) y 0.80 (80%).
+2026-11-18 00:37:53 | INFO     | Reserva cancelada: Reserva [RES-005] | Cliente: Carlos Andrés Gómez | Servicio: Portátil Workstation Pro | Duración: 2h | Estado: CANCELADA | Total: $0.00
+2026-11-18 00:37:53 | ERROR    | Error procesando reserva: [ERR_OPERACION_NO_PERMITIDA] No se puede confirmar la reserva [RES-005] porque ya fue cancelada. | Causa: None
+Traceback (most recent call last):
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/sistema.py", line 113, in confirmar_y_procesar_reserva
+    reserva.confirmar()
+  File "/working_dir/c_92ab3739e4ce8d97/artifacts/file_generation/ttl=63d/output/software_fj_reservas/reserva.py", line 100, in confirmar
+    raise OperacionNoPermitidaError(
+excepciones.OperacionNoPermitidaError: [ERR_OPERACION_NO_PERMITIDA] No se puede confirmar la reserva [RES-005] porque ya fue cancelada.
